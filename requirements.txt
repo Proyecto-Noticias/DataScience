@@ -1,3 +1,6 @@
 fastapi
 uvicorn
 SQLAlchemy
+async-exit-stack 
+async-generator
+PyMySQL
