@@ -4,7 +4,7 @@ from fastapi import Depends, FastAPI
 
 from . import models
 from .database import SessionLocal, engine
-from .routers import scraper
+from .routers import articles
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -18,9 +18,9 @@ def get_db():
         db.close()
 
 app.include_router(
-    scraper.router,
-    prefix="/api/v1/scraper",
-    tags=["scraper"],
+    articles.router,
+    prefix="/api/v1",
+    tags=["News Articles Endpoints"],
     dependencies=[Depends(get_db)],
     responses={404: {"description": "Not found"}},
 )

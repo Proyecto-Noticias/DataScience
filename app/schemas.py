@@ -16,3 +16,15 @@ class Article(BaseModel):
 
     class Config:
         orm_mode = True
+
+class ScrapingStats(BaseModel):
+    id: int
+    response_count: int
+    start_time: str
+    finish_time: str
+    memory_usage_max: int
+    total_articles_added: int
+    scraping_date: str
+
+    class Config:
+        orm_mode = True

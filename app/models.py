@@ -1,5 +1,6 @@
+from datetime import date
 from enum import unique
-from sqlalchemy import Column, Integer, String, Text
+from sqlalchemy import Column, Integer, String, Text, Float
 
 from .database import Base
 
@@ -18,4 +19,14 @@ class Article(Base):
     scraping_date = Column(String(50), nullable=False)
     
 
+class ScrapingStats(Base):
+    __tablename__ = "scraping_stats"
+
+    id = Column(Integer, primary_key=True, index=True)
+    response_count = Column(Integer, nullable=False)
+    start_time = Column(String(50), nullable=False)
+    finish_time = Column(String(50), nullable=False)
+    memory_usage_max = Column(Integer, nullable=False)
+    total_articles_added = Column(Integer, nullable=False)
+    scraping_date = Column(String(50), nullable=False)
 
