@@ -1,11 +1,10 @@
 from enum import unique
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, TIMESTAMP, Text
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, Integer, String, Text
 
 from .database import Base
 
-class RawArticle(Base):
-    __tablename__ = "raw_articles"
+class Article(Base):
+    __tablename__ = "articles"
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String(300), nullable=False)

@@ -1,12 +1,12 @@
 from typing import List
 
-from fastapi import Depends, FastAPI, HTTPException
+from fastapi import Depends, FastAPI
 
-#from . import  models
+from . import models
 from .database import SessionLocal, engine
 from .routers import scraper
 
-#models.Base.metadata.create_all(bind=engine)
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 

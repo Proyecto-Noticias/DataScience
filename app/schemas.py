@@ -1,8 +1,8 @@
-from typing import List, Optional
+from typing import Optional
 
 from pydantic import BaseModel
 
-class RawArticle(BaseModel):
+class Article(BaseModel):
     id: int
     title: str 
     subtitle: str
