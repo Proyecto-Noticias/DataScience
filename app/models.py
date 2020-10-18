@@ -1,3 +1,4 @@
+from enum import unique
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, TIMESTAMP, Text
 from sqlalchemy.orm import relationship
 
@@ -13,7 +14,7 @@ class RawArticle(Base):
     image_url = Column(String(200), nullable=True)
     category_id = Column(Integer)
     body = Column(Text, nullable=False)
-    article_url = Column(String(200), nullable=False)
+    article_url = Column(String(200), unique=True, nullable=False)
     journal_id = Column(Integer)
     scraping_date = Column(String(50), nullable=False)
     

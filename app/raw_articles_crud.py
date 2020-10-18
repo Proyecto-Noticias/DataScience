@@ -2,6 +2,9 @@ from sqlalchemy.orm import Session
 
 from . import models, schemas
 
+def get_article_by_url(db: Session, article_url:str):
+    return db.query(models.RawArticle).filter(models.RawArticle.article_url==article_url).first()
+
 
 def create_raw_article(db: Session, raw_article: schemas.RawArticle):
     db_raw_article = models.RawArticle(title = raw_article.title,
