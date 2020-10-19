@@ -4,11 +4,13 @@ from fastapi import Depends, FastAPI
 
 from . import models
 from .database import SessionLocal, engine
-from .routers import articles
+from .routers import articles, stats
 
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI()
+app = FastAPI(title="EasyNews DataScience API",
+    description="REST API which serves new and historical news content scraped from the web.",
+    version="1.0",)
 
 def get_db():
     db = SessionLocal()
@@ -21,6 +23,14 @@ app.include_router(
     articles.router,
     prefix="/api/v1",
     tags=["News Articles Endpoints"],
+    dependencies=[Depends(get_db)],
+    responses={404: {"description": "Not found"}},
+)
+
+app.include_router(
+    stats.router,
+    prefix="/api/v1",
+    tags=["Stats Endpoints"],
     dependencies=[Depends(get_db)],
     responses={404: {"description": "Not found"}},
 )
