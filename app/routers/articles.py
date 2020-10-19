@@ -22,8 +22,3 @@ async def create_article(article: schemas.Article, db: Session = Depends(get_db)
     if db_article:
         raise HTTPException(status_code=400, detail="Article already registered")
     return articles_crud.create_article(db=db, article=article)
-
-
-@router.post("/scraper_stats/", response_model=schemas.ScrapingStats)
-async def create_stats(stats: schemas.ScrapingStats, db: Session = Depends(get_db)):
-    return stats_crud.create_stats(db=db, stats=stats)
