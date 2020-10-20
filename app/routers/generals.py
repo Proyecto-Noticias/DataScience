@@ -20,3 +20,7 @@ router = APIRouter()
 @router.get("/categories/", response_model=List[schemas.Category])
 async def read_categories(db: Session = Depends(get_db)):
     return generals_crud.get_categories(db=db)
+
+@router.get("/journals/", response_model=List[schemas.Journal])
+async def read_journals(db: Session = Depends(get_db)):
+    return generals_crud.get_journals(db=db)

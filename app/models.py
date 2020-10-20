@@ -36,3 +36,11 @@ class Category(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(45), nullable=False)
+
+class Journal(Base):
+    __tablename__ = "journals"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(45), nullable=False)
+    site_url = Column(String(45), nullable=False)
+    country = Column(String(4), nullable=False)

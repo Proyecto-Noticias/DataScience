@@ -37,4 +37,12 @@ class Category(BaseModel):
     class Config:
         orm_mode = True
 
+class Journal(BaseModel):
+    id: int
+    name: str
+    site_url: str
+    country: str
+
+    class Config:
+        orm_mode = True
 
