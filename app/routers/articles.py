@@ -1,8 +1,10 @@
+from typing import List
+
 from fastapi import Depends, APIRouter, HTTPException
 
 from sqlalchemy.orm import Session
 
-from .. import articles_crud, stats_crud, schemas
+from .. import articles_crud, schemas
 from ..database import SessionLocal
 
 # Dependency
@@ -22,3 +24,7 @@ async def create_article(article: schemas.Article, db: Session = Depends(get_db)
     if db_article:
         raise HTTPException(status_code=400, detail="Article already registered")
     return articles_crud.create_article(db=db, article=article)
+
+@router.get("/articles/", response_model=List[schemas.Article])
+async def read_articles(db: Session = Depends(get_db)):
+    return articles_crud.get_articles(db=db)

@@ -3,7 +3,6 @@ from sqlalchemy.orm import Session
 from . import models, schemas
 
 
-
 def create_stats(db: Session, stats: schemas.ScrapingStats):
     db_stats = models.ScrapingStats(response_count=stats.response_count,
     start_time=stats.start_time,

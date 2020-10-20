@@ -17,6 +17,7 @@ class Article(Base):
     article_url = Column(String(200), unique=True, nullable=False)
     journal_id = Column(Integer)
     scraping_date = Column(String(50), nullable=False)
+    sentiment_classification = Column(String(45), nullable=False)
     
 
 class ScrapingStats(Base):
@@ -30,3 +31,8 @@ class ScrapingStats(Base):
     total_articles_added = Column(Integer, nullable=False)
     scraping_date = Column(String(50), nullable=False)
 
+class Category(Base):
+    __tablename__ = "categories"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(45), nullable=False)

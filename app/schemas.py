@@ -13,6 +13,7 @@ class Article(BaseModel):
     article_url: str 
     journal_id: int
     scraping_date: Optional[str] = None
+    sentiment_classification: str
 
     class Config:
         orm_mode = True
@@ -28,3 +29,12 @@ class ScrapingStats(BaseModel):
 
     class Config:
         orm_mode = True
+
+class Category(BaseModel):
+    id: int
+    name: str
+
+    class Config:
+        orm_mode = True
+
+

@@ -2,6 +2,11 @@ from sqlalchemy.orm import Session
 
 from . import models, schemas
 
+
+def get_articles(db: Session):
+    return db.query(models.Article).all()
+
+
 def get_article_by_url(db: Session, article_url:str):
     return db.query(models.Article).filter(models.Article.article_url==article_url).first()
 
