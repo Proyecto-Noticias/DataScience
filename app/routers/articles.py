@@ -28,3 +28,7 @@ async def create_article(article: schemas.Article, db: Session = Depends(get_db)
 @router.get("/articles/", response_model=List[schemas.Article])
 async def read_articles(db: Session = Depends(get_db)):
     return articles_crud.get_articles(db=db)
+
+@router.get("/articles-joined/", response_model=List[schemas.ArticleJoined])
+async def read_articles_joined():
+    return articles_crud.get_articles_text()

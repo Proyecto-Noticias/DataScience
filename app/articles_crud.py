@@ -1,7 +1,10 @@
 from sqlalchemy.orm import Session
 
-from . import models, schemas
+from . import models, schemas, mysql_service
 
+
+def get_articles_text():
+    return mysql_service.get_articles_joined()
 
 def get_articles(db: Session):
     return db.query(models.Article).all()

@@ -2,6 +2,9 @@ from sqlalchemy.orm import Session
 
 from . import models, schemas
 
+def get_stats(db: Session):
+    return db.query(models.ScrapingStats).all()
+
 
 def create_stats(db: Session, stats: schemas.ScrapingStats):
     db_stats = models.ScrapingStats(response_count=stats.response_count,

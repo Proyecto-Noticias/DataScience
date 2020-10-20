@@ -18,6 +18,19 @@ class Article(BaseModel):
     class Config:
         orm_mode = True
 
+class ArticleJoined(BaseModel):
+
+    title: str 
+    subtitle: str
+    article_date: str
+    image_url: Optional[str] = None
+    category: str
+    body: str
+    article_url: str 
+    journal: str
+    scraping_date: Optional[str] = None
+    sentiment_classification: str
+
 class ScrapingStats(BaseModel):
     id: int
     response_count: int
