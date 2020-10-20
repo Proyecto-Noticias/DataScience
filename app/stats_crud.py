@@ -12,7 +12,8 @@ def create_stats(db: Session, stats: schemas.ScrapingStats):
     finish_time=stats.finish_time,
     memory_usage_max=stats.memory_usage_max,
     total_articles_added=stats.total_articles_added,
-    scraping_date=stats.scraping_date)
+    scraping_date=stats.scraping_date,
+    spider=stats.spider)
 
     db.add(db_stats)
     db.commit()

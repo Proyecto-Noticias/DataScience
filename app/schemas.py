@@ -39,6 +39,7 @@ class ScrapingStats(BaseModel):
     memory_usage_max: int
     total_articles_added: int
     scraping_date: str
+    spider: str
 
     class Config:
         orm_mode = True

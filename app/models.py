@@ -30,6 +30,7 @@ class ScrapingStats(Base):
     memory_usage_max = Column(Integer, nullable=False)
     total_articles_added = Column(Integer, nullable=False)
     scraping_date = Column(String(50), nullable=False)
+    spider = Column(String(45), nullable=False)
 
 class Category(Base):
     __tablename__ = "categories"
