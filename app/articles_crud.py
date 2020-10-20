@@ -20,7 +20,8 @@ def create_article(db: Session, article: schemas.Article):
      body = article.body,
      article_url = article.article_url,
      journal_id = article.journal_id,
-     scraping_date = article.scraping_date
+     scraping_date = article.scraping_date,
+     sentiment_classification = article.sentiment_classification
      )
     db.add(db_article)
     db.commit()

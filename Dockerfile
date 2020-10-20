@@ -26,5 +26,5 @@ COPY . .
 RUN chmod +x run.sh
 # Run the web service on container startup. 
 #RUN ./run.sh
-EXPOSE 8000
+EXPOSE 8080
 CMD ["./run.sh"]
