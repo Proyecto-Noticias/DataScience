@@ -18,6 +18,8 @@ class Article(Base):
     journal_id = Column(Integer)
     scraping_date = Column(String(50), nullable=False)
     sentiment_classification = Column(String(45), nullable=False)
+    score = Column(Float)
+    magnitude = Column(Float)
     
 
 class ScrapingStats(Base):

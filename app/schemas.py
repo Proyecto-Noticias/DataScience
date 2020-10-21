@@ -14,6 +14,8 @@ class Article(BaseModel):
     journal_id: int
     scraping_date: Optional[str] = None
     sentiment_classification: str
+    score: float
+    magnitude: float
 
     class Config:
         orm_mode = True
