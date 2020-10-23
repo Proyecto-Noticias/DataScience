@@ -32,3 +32,7 @@ async def read_articles(db: Session = Depends(get_db)):
 @router.get("/articles-joined/", response_model=List[schemas.ArticleJoined])
 async def read_articles_joined():
     return articles_crud.get_articles_text()
+
+@router.get("/articles-joined/{date}", response_model=List[schemas.ArticleJoined])
+async def read_articles_joined_by_date(date: str):
+    return articles_crud.get_articles_by_date(date)

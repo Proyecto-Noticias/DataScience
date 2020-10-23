@@ -32,6 +32,8 @@ class ArticleJoined(BaseModel):
     journal: str
     scraping_date: Optional[str] = None
     sentiment_classification: str
+    score: float
+    magnitude: float
 
 class ScrapingStats(BaseModel):
     id: int

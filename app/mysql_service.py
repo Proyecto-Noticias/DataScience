@@ -31,7 +31,27 @@ def get_articles_joined():
             row_count = 0
             e = 'none'
             # Read a single record
-            sql = f"""SELECT title, subtitle, article_date, image_url, c.name AS category, body, article_url, j.name AS journal, scraping_date, sentiment_classification FROM articles JOIN categories AS c ON articles.category_id=c.id JOIN journals AS j ON articles.journal_id=j.id"""
+            sql = f"""SELECT title, subtitle, article_date, image_url, c.name AS category, body, article_url, j.name AS journal, scraping_date, sentiment_classification, score, magnitude FROM articles JOIN categories AS c ON articles.category_id=c.id JOIN journals AS j ON articles.journal_id=j.id"""
+            cursor.execute(sql)
+            result = cursor.fetchall()
+
+    except Exception as ex:        
+        #print(ex.args[1]) 
+        e = ex.args[0]
+    finally:
+        connection.close()
+        return  result
+
+def get_articles_by_date(date):
+    result = {}
+    connection = _connect_to_db()
+
+    try:
+        with connection.cursor() as cursor:
+            row_count = 0
+            e = 'none'
+            # Read a single record
+            sql = f"""SELECT title, subtitle, article_date, image_url, c.name AS category, body, article_url, j.name AS journal, scraping_date, sentiment_classification, score, magnitude FROM articles JOIN categories AS c ON articles.category_id=c.id JOIN journals AS j ON articles.journal_id=j.id WHERE scraping_date LIKE '{date}%'"""
             cursor.execute(sql)
             result = cursor.fetchall()
 
