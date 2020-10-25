@@ -1,7 +1,7 @@
 # AlwaysUpdate ~ DataScience REST API 📰
 
 
-# getting started 🚀
+# Getting started 🚀
 ## Things that you need to have installed in your system: 🛠️
  * Python 3.7
  * pip
