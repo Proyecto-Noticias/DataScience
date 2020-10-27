@@ -30,6 +30,7 @@ class ArticleJoined(BaseModel):
     body: str
     article_url: str 
     journal: str
+    country: str
     scraping_date: Optional[str] = None
     sentiment_classification: str
     score: float
