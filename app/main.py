@@ -9,7 +9,7 @@ from .routers import articles, stats, generals
 
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="EasyNews DataScience API",
+app = FastAPI(title="AlwaysUpdate DataScience API",
     description="REST API which serves new and historical news content scraped from the web.",
     version="1.0",)
 
